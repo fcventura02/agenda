@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="vinho_200">#C257A1</color>
+    <color name="vinho_500">#3F012C</color>
+    <color name="laranja_700">#F4320C</color>
+    <color name="black">#131213</color>
+    <color name="verde_700">#014D4E</color>
+    <color name="verde_201">#59B1B2</color>
+    <color name="white">#F4ECF2</color>
+</resources>
