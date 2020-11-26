@@ -11,7 +11,7 @@
         android:theme="@style/Theme.Agenda">
         <activity android:name=".ItemDetailActivity"></activity>
         <activity android:name=".principal" />
-        <activity android:name=".new_account" />
+        <activity android:name=".NewAccount" />
         <activity android:name=".login2" />
         <activity android:name=".MainActivity">
             <intent-filter>

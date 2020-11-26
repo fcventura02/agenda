@@ -13,4 +13,5 @@
     <string name="confirmar">Confirmar</string>
     <string name="novo_agendamento">Novo agendamento</string>
     <string name="agendamento_da_semana">Agendamento da semana</string>
+    <string name="back">back</string>
 </resources>
