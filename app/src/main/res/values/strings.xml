@@ -4,4 +4,13 @@
     <string name="manter_logado">Manter logado</string>
     <string name="logar">Logar</string>
     <string name="esqueci_minha_senha">Esqueci minha senha</string>
+    <string name="icon_password">icon_password</string>
+    <string name="icon_email">icon_email</string>
+    <string name="logo_agenda">logo_agenda</string>
+    <string name="password">Password</string>
+    <string name="email">Email</string>
+    <string name="nome">Nome</string>
+    <string name="confirmar">Confirmar</string>
+    <string name="novo_agendamento">Novo agendamento</string>
+    <string name="agendamento_da_semana">Agendamento da semana</string>
 </resources>

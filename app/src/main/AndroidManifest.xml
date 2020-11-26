@@ -9,7 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_icon"
         android:supportsRtl="true"
         android:theme="@style/Theme.Agenda">
-        <activity android:name=".login2"></activity>
+        <activity android:name=".ItemDetailActivity"></activity>
+        <activity android:name=".principal" />
+        <activity android:name=".new_account" />
+        <activity android:name=".login2" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
