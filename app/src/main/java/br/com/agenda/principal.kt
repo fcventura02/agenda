@@ -12,11 +12,16 @@ class principal : AppCompatActivity() {
         setContentView(R.layout.activity_principal)
         val list = mutableListOf<String>("item: Item")
 
+        btm_New_schedule.setOnClickListener {
+            val intent = Intent(this, new_schedule::class.java)
+            startActivity(intent)
+        }
+
         (1..100).forEachIndexed { index, _ -> list.add("Item $index") }
 
         rvContent.run {
             layoutManager = LinearLayoutManager(this@principal)
-            adapter = ItemAdapter(list){
+            adapter = ItemAdapter(list) {
                 adapterOnClick(it)
             }
         }
