@@ -11,7 +11,7 @@ class ScheduleRepository(private val scheduleDao: ScheduleDao) {
        return scheduleDao.readAllDaySchedule(date)
     }
 
-    suspend fun readAllWeekSchedule(date:String){
+    fun readAllWeekSchedule(date:String){
         scheduleDao.readAllWeekSchedule(date)
     }
 }

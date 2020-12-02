@@ -6,12 +6,13 @@ import androidx.room.PrimaryKey
 import br.com.agenda.data.user_data.User
 import java.util.*
 
-@Entity(tableName = "schedule_data",
+@Entity(tableName = "schedule_data" /*,
     foreignKeys = arrayOf(ForeignKey(entity = User::class,
         parentColumns = arrayOf("id"),
         childColumns = arrayOf("user_id"),
-        onDelete = ForeignKey.CASCADE
-        ))
+        onDelete = ForeignKey.CASCADE*
+        )
+        )*/
 )
 data class Schedule(
     @PrimaryKey(autoGenerate = true)
@@ -19,8 +20,8 @@ data class Schedule(
     val name: String,
     val task: String,
     val cost: Float,
-    val date: Date,
-    val timer: Timer,
+    val date: String,
+    val timer: String,
     val complet: Boolean,
     val user_id: Int
 ) {

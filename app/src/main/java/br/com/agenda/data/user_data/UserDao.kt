@@ -13,6 +13,6 @@ interface UserDao {
     @Insert(onConflict = OnConflictStrategy.IGNORE)
     suspend fun addUser(user: User)
 
-    @Query ("SELECT * FROM user_data as u WHERE u.email = email")
+    @Query ("SELECT * FROM user_data as u WHERE u.email = :email")
     suspend fun readOneDataUser(email: String):User
 }
