@@ -14,4 +14,8 @@
     <string name="novo_agendamento">Novo agendamento</string>
     <string name="agendamento_da_semana">Agendamento da semana</string>
     <string name="back">back</string>
+    <string name="tarefa">Tarefa</string>
+    <string name="Valor">Valor</string>
+    <string name="date">Data</string>
+    <string name="time">Horas</string>
 </resources>
