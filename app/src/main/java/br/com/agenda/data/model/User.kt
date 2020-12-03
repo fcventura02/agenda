@@ -1,4 +1,4 @@
-package br.com.agenda.data.user_data
+package br.com.agenda.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

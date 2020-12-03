@@ -4,18 +4,25 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import br.com.agenda.data.model.Schedule
+import br.com.agenda.data.model.User
+import br.com.agenda.data.schedule_data.ScheduleDao
+import kotlinx.coroutines.InternalCoroutinesApi
 
-@Database(entities = [User::class], version = 1, exportSchema = false)
+@Database(entities = [User::class, Schedule::class], version = 2, exportSchema = false)
 abstract class UserDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
+    abstract fun scheduleDao(): ScheduleDao
 
     companion object{
-        private var INSTANCE: UserDatabase? = null
+        @Volatile
+        private var INSTANCEU: UserDatabase? = null
 
+        @OptIn(InternalCoroutinesApi::class)
         fun getDatabase(context: Context):UserDatabase{
-            val tempInstance = INSTANCE
-            if (tempInstance != null){
-                return tempInstance
+            val tempInstanceU = INSTANCEU
+            if (tempInstanceU != null ){
+                return tempInstanceU
             }
 
             synchronized(this){
@@ -24,7 +31,7 @@ abstract class UserDatabase: RoomDatabase() {
                     UserDatabase::class.java,
                     "user_database"
                 ).build()
-                INSTANCE = instance
+                INSTANCEU = instance
                 return instance
             }
         }
