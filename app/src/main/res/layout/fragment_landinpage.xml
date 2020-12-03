@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragments.landinpage"
+    android:background="@color/verde_201">
+
+    <ImageView
+        android:layout_width="320dp"
+        android:layout_height="320dp"
+        android:src="@drawable/ic_logo_horizontal"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

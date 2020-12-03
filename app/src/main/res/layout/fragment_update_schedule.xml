@@ -4,32 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".new_schedule"
+    tools:context=".fragments.updateSchedule"
     android:background="@color/verde_201">
+
 
     <ImageView
         android:id="@+id/img_logo"
-        android:layout_width="280dp"
-        android:layout_height="250dp"
-        android:layout_marginTop="20dp"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="16dp"
         android:contentDescription="@string/logo_agenda"
-        android:src="@drawable/ic_logo_horizontal"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:src="@drawable/ic_logo_vertical"
+        app:layout_constraintStart_toEndOf="@+id/img_update_back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/img_back"
+        android:id="@+id/img_update_back"
         android:layout_width="30dp"
         android:layout_height="20dp"
-        android:layout_marginTop="10dp"
         android:contentDescription="@string/back"
         android:src="@drawable/ic_baseline_keyboard_backspace_24"
-        app:layout_constraintStart_toStartOf="@+id/img_logo"
-        app:layout_constraintTop_toBottomOf="@+id/img_logo" />
+        app:layout_constraintBottom_toBottomOf="@+id/img_logo"
+        app:layout_constraintStart_toStartOf="@+id/vw_schedule_update_name"
+        app:layout_constraintTop_toTopOf="@+id/img_logo" />
 
     <LinearLayout
-        android:id="@+id/vw_schedule_name"
+        android:id="@+id/vw_schedule_update_name"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:background="@drawable/bg_input"
@@ -50,19 +51,19 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_new_schedule_name"
+            android:id="@+id/et_schedule_update_name"
             android:layout_width="match_parent"
             android:layout_height="45dp"
+            android:autofillHints="Email"
             android:hint="@string/nome"
-            android:textColorHint="#bbb"
-            android:textColor="@color/black"
             android:inputType="textEmailAddress"
-            android:textSize="18sp"
-            android:autofillHints="Email" />
+            android:textColor="@color/black"
+            android:textColorHint="#bbb"
+            android:textSize="18sp" />
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/vw_schedule_email"
+        android:id="@+id/vw_schedule_update_email"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:background="@drawable/bg_input"
@@ -72,7 +73,7 @@
         android:gravity="center"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_name">
+        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_name">
         <ImageView
             android:layout_width="40dp"
             android:layout_height="40dp"
@@ -84,7 +85,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_new_schedule_email"
+            android:id="@+id/et_new_schedule_task"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/tarefa"
@@ -97,7 +98,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/vw_schedule_amount"
+        android:id="@+id/vw_schedule_update_amount"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -107,7 +108,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_email">
+        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_email">
 
         <ImageView
             android:layout_width="40dp"
@@ -119,7 +120,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_new_schedule_amount"
+            android:id="@+id/et_schedule_update_amount"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:autofillHints="Password"
@@ -136,7 +137,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/vw_schedule_date"
+        android:id="@+id/vw_schedule_update_date"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -146,7 +147,7 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_amount">
+        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_amount">
 
         <ImageView
             android:layout_width="40dp"
@@ -158,7 +159,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_new_schedule_date"
+            android:id="@+id/et_schedule_update_date"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:ems="10"
@@ -173,7 +174,7 @@
     </LinearLayout>
 
     <LinearLayout
-        android:id="@+id/vw_schedule_hour"
+        android:id="@+id/vw_schedule_update_hour"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
@@ -183,30 +184,30 @@
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_date">
+        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_date">
 
-    <ImageView
-        android:layout_width="40dp"
-        android:layout_height="40dp"
-        android:contentDescription="@string/icon_password"
-        android:src="@drawable/ic_time"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/icon_password"
+            android:src="@drawable/ic_time"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <EditText
-        android:id="@+id/et_new_schedule_hour"
-        android:layout_width="match_parent"
-        android:layout_height="45dp"
-        android:ems="10"
-        android:hint="@string/time"
-        android:inputType="time"
-        android:textColor="@color/black"
-        android:textColorHint="#bbb"
-        android:textSize="18sp"
-        tools:ignore="TextFields"
-        tools:layout_editor_absoluteX="129dp"
-        tools:layout_editor_absoluteY="403dp" />
+        <EditText
+            android:id="@+id/et_schedule_update_hour"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:ems="10"
+            android:hint="@string/time"
+            android:inputType="time"
+            android:textColor="@color/black"
+            android:textColorHint="#bbb"
+            android:textSize="18sp"
+            tools:ignore="TextFields"
+            tools:layout_editor_absoluteX="129dp"
+            tools:layout_editor_absoluteY="403dp" />
     </LinearLayout>
 
     <Button
@@ -221,7 +222,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_hour" />
-
+        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_hour" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

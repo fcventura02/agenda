@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/my_nav"
+    app:startDestination="@id/login">
+
+    <fragment
+        android:id="@+id/landinpage"
+        android:name="br.com.agenda.fragments.landinpage"
+        android:label="fragment_landinpage"
+        tools:layout="@layout/fragment_landinpage" >
+        <action
+            android:id="@+id/action_landinpage_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/login"
+        android:name="br.com.agenda.fragments.Login"
+        android:label="fragment_login"
+        tools:layout="@layout/fragment_login" >
+        <action
+            android:id="@+id/action_login_to_index"
+            app:destination="@id/index" />
+        <action
+            android:id="@+id/action_login_to_new_account2"
+            app:destination="@id/new_account" />
+    </fragment>
+    <fragment
+        android:id="@+id/new_account"
+        android:name="br.com.agenda.fragments.new_account"
+        android:label="fragment_new_account"
+        tools:layout="@layout/fragment_new_account" >
+        <action
+            android:id="@+id/action_new_account_to_login"
+            app:destination="@id/login" />
+    </fragment>
+    <fragment
+        android:id="@+id/index"
+        android:name="br.com.agenda.fragments.index"
+        tools:layout="@layout/fragment_index" >
+        <action
+            android:id="@+id/action_index_to_login"
+            app:destination="@id/login" />
+        <action
+            android:id="@+id/action_index_to_add_schedule"
+            app:destination="@id/add_schedule" />
+        <action
+            android:id="@+id/action_index_to_updateSchedule"
+            app:destination="@id/updateSchedule" />
+    </fragment>
+    <fragment
+        android:id="@+id/add_schedule"
+        android:name="br.com.agenda.fragments.add_schedule"
+        android:label="ADICIONAR"
+        tools:layout="@layout/fragment_add_schedule" >
+        <action
+            android:id="@+id/action_add_schedule_to_index"
+            app:destination="@id/index" />
+    </fragment>
+    <fragment
+        android:id="@+id/updateSchedule"
+        android:name="br.com.agenda.fragments.updateSchedule"
+        android:label="ATUALIZAR"
+        tools:layout="@layout/fragment_update_schedule" >
+        <action
+            android:id="@+id/action_updateSchedule_to_index"
+            app:destination="@id/index" />
+        <argument
+            android:name="currentSchedule"
+            app:argType="br.com.agenda.data.model.Schedule" />
+    </fragment>
+</navigation>

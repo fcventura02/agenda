@@ -5,10 +5,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".principal"
     app:layoutDescription="@xml/activity_principal_scene"
     android:background="@color/verde_201"
-    >
+    tools:context=".fragments.index">
 
     <View
         android:id="@+id/vwToolbar"
@@ -66,7 +65,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
-         />
+        />
     <View
         android:id="@+id/spacer"
         android:layout_width="0dp"
