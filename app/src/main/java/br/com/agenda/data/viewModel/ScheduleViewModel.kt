@@ -18,27 +18,19 @@ class ScheduleViewModel(application: Application): AndroidViewModel(application)
     init {
         val scheduleDao = UserDatabase.getDatabase(application).scheduleDao()
         repository = ScheduleRepository(scheduleDao)
-
         val date = LocalDate.now()
-        readAllSchedule = repository.readAllDaySchedule(date.toString())
-    }
-
-    fun readAllDaySchedulle(): LiveData<List<Schedule>> {
-        val date = LocalDate.now()
-        val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
-        val formatted = date.format(formatter)
-        var allDaySchedulle = GlobalScope.async { repository.readAllDaySchedule(formatted) }
-        lateinit var daySchedulle: LiveData<List<Schedule>>
-        runBlocking {
-            daySchedulle = allDaySchedulle.await()
-        }
-
-        return  daySchedulle
+        readAllSchedule = repository.readAllWeekSchedule(date.toString())
     }
 
     fun addSchedule(schedule: Schedule){
         viewModelScope.launch(Dispatchers.IO) {
             repository.addSchedule(schedule)
+        }
+    }
+
+    fun updateschedule(schedule: Schedule){
+        viewModelScope.launch(Dispatchers.IO){
+            repository.updateSchedule(schedule)
         }
     }
 

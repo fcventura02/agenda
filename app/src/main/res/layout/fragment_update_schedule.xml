@@ -85,7 +85,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
-            android:id="@+id/et_new_schedule_task"
+            android:id="@+id/et_schedule_update_task"
             android:layout_width="match_parent"
             android:layout_height="45dp"
             android:hint="@string/tarefa"
@@ -210,8 +210,18 @@
             tools:layout_editor_absoluteY="403dp" />
     </LinearLayout>
 
+    <CheckBox
+        android:id="@+id/isCompleted"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@string/Concluido"
+        app:layout_constraintStart_toStartOf="@+id/vw_schedule_update_hour"
+        app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_hour" />
+
+
     <Button
-        android:id="@+id/btm_schedule_confirm"
+        android:id="@+id/btm_schedule_update_confirm"
         android:layout_width="270dp"
         android:layout_height="50dp"
         android:backgroundTint="@color/vinho_200"
@@ -223,5 +233,6 @@
         app:layout_constraintHorizontal_bias="0.539"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/vw_schedule_update_hour" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -22,6 +22,9 @@ import java.time.format.DateTimeFormatter
 
 class add_schedule : Fragment() {
         private lateinit var mSchedule: ScheduleViewModel
+
+
+
     @SuppressLint("RestrictedApi")
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -52,7 +55,7 @@ class add_schedule : Fragment() {
         val date = LocalDate.parse(dateView,formatter)
 
         try {
-            if (inputCheck(name, task, amount,date, hour)){
+            if (inputCheck(name, task, amount,date.toString(), hour)){
                 val schedule = Schedule(0,name,task, amount.toFloat(), date.toString(), hour, false, 1 )
                 mSchedule.addSchedule(schedule)
                 Toast.makeText(requireContext(), "Adicionado com secesso!" , Toast.LENGTH_SHORT).show()
@@ -63,7 +66,7 @@ class add_schedule : Fragment() {
         }
     }
 
-    private fun inputCheck(name:String, task:String, amount:String, date: LocalDate, hour:String):Boolean{
-        return!(TextUtils.isEmpty(name) && TextUtils.isEmpty(task) && TextUtils.isEmpty(amount))
+    private fun inputCheck(name:String, task:String, amount:String, date: String, hour:String):Boolean{
+        return!(TextUtils.isEmpty(name) && TextUtils.isEmpty(task) && TextUtils.isEmpty(amount)&& TextUtils.isEmpty(date)&& TextUtils.isEmpty(hour))
     }
 }

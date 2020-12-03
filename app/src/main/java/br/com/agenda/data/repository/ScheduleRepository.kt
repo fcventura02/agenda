@@ -10,10 +10,14 @@ class ScheduleRepository(private val scheduleDao: ScheduleDao) {
     }
 
     fun readAllDaySchedule(date: String): LiveData<List<Schedule>>{
-       return scheduleDao.readAllDaySchedule()
+       return scheduleDao.readAllDaySchedule(date)
     }
 
-    fun readAllWeekSchedule(date:String){
-        scheduleDao.readAllWeekSchedule(date)
+    fun readAllWeekSchedule(date:String): LiveData<List<Schedule>>{
+        return scheduleDao.readAllWeekSchedule(date)
+    }
+
+    suspend fun updateSchedule(schedule: Schedule){
+        scheduleDao.updateSchedule(schedule)
     }
 }
