@@ -34,4 +34,16 @@ class ScheduleViewModel(application: Application): AndroidViewModel(application)
         }
     }
 
+    fun deleteOneSchedule(schedule: Schedule){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteOneSchedule(schedule)
+        }
+    }
+
+    fun deleteAllSchedule(schedule: Schedule){
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.deleteAllSchedule()
+        }
+    }
+
 }

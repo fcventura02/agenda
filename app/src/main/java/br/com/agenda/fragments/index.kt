@@ -1,10 +1,12 @@
 package br.com.agenda.fragments
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.os.Bundle
+import android.preference.PreferenceManager
+import android.view.*
+import android.widget.Toast
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -13,8 +15,10 @@ import br.com.agenda.R
 import br.com.agenda.data.schedule_data.ListAdapter
 import br.com.agenda.data.viewModel.ScheduleViewModel
 import kotlinx.android.synthetic.main.fragment_index.view.*
+import kotlinx.android.synthetic.main.fragment_login.view.*
 
 
+@Suppress("DEPRECATION")
 class index : Fragment() {
 
     private lateinit var  mScheduleViewModel: ScheduleViewModel
@@ -40,8 +44,26 @@ class index : Fragment() {
             findNavController().navigate(R.id.action_index_to_add_schedule)
         }
 
+        setHasOptionsMenu(true)
 
         // Inflate the layout for this fragment
         return view
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+        inflater.inflate(R.menu.menu_sair, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_sair){
+            val myPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext())
+            val myEditor = myPreferences.edit()
+            myEditor.putBoolean("save_login", false)
+            myEditor.apply()
+            findNavController().navigate(R.id.action_index_to_login)
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
 }

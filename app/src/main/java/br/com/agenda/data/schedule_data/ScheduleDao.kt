@@ -19,4 +19,11 @@ interface ScheduleDao {
 
     @Update
     suspend fun updateSchedule(schedule: Schedule)
+
+    @Delete
+    suspend fun deleteOneSchedule(schedule: Schedule)
+
+    @Query("DELETE from schedule_data")
+    suspend fun deleteAllSchedule()
+
 }

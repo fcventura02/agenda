@@ -1,12 +1,12 @@
 package br.com.agenda.fragments
 
+import android.annotation.SuppressLint
+import android.app.AlertDialog
 import android.icu.util.LocaleData
 import android.os.Bundle
 import android.text.TextUtils
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -49,6 +49,8 @@ class updateSchedule : Fragment() {
              updateItem()
          }
 
+         setHasOptionsMenu(true)
+
          return  view
     }
 
@@ -76,6 +78,35 @@ class updateSchedule : Fragment() {
     private fun inputCheck(name:String, task:String, amount:String, date: String, hour:String):Boolean{
         return!(TextUtils.isEmpty(name) && TextUtils.isEmpty(task) && TextUtils.isEmpty(amount)&& TextUtils.isEmpty(date)&& TextUtils.isEmpty(hour))
     }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+       inflater.inflate(R.menu.delete_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.menu_delete){
+            deleteSchedule()
+        }
+
+        return super.onOptionsItemSelected(item)
+    }
+
+    @SuppressLint("RestrictedApi")
+    private fun deleteSchedule(){
+        val builder = AlertDialog.Builder(requireContext())
+        builder.setPositiveButton("SIM"){_,_->
+            mScheduleViewModel.deleteOneSchedule(args.currentSchedule)
+            Toast.makeText(requireContext(), "Agndamento de ${args.currentSchedule.name} deletado com sucesso!", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.action_updateSchedule_to_index)
+        }
+        builder.setNegativeButton("NÃO"){_,_ ->
+
+        }
+            .setTitle("Deletar agendamento de ${args.currentSchedule.name}?")
+        builder.setMessage("Você tem certeza que deseja remover o agendamento de ${args.currentSchedule.name}?")
+        builder.create().show()
+    }
+
 /*
     fun formateDate(date: String):LocalDate{
         val oldFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
