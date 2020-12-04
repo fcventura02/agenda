@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import android.app.AlertDialog
 import android.os.Bundle
 import android.preference.PreferenceManager
+import android.util.Log
 import android.view.*
 import android.widget.Toast
 import androidx.fragment.app.Fragment
@@ -45,10 +46,14 @@ class index : Fragment() {
         }
 
         setHasOptionsMenu(true)
-
+        /*
+        Log.e("TAG","m")
+        */
         // Inflate the layout for this fragment
+
         return view
     }
+
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
         inflater.inflate(R.menu.menu_sair, menu)

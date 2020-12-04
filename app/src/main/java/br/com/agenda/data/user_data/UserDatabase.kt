@@ -9,7 +9,7 @@ import br.com.agenda.data.model.User
 import br.com.agenda.data.schedule_data.ScheduleDao
 import kotlinx.coroutines.InternalCoroutinesApi
 
-@Database(entities = [User::class, Schedule::class], version = 2, exportSchema = false)
+@Database(entities = [User::class, Schedule::class], version = 3, exportSchema = false)
 abstract class UserDatabase: RoomDatabase() {
     abstract fun userDao(): UserDao
     abstract fun scheduleDao(): ScheduleDao
