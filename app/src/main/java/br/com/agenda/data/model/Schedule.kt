@@ -2,17 +2,19 @@ package br.com.agenda.data.model
 
 import android.os.Parcelable
 import androidx.room.Entity
+import androidx.room.ForeignKey
+import androidx.room.Index
 import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
 @Entity(tableName = "schedule_data" ,
-   /* foreignKeys = arrayOf(ForeignKey(entity = User::class,
+    foreignKeys = arrayOf(ForeignKey(entity = User::class,
         parentColumns = arrayOf("id"),
         childColumns = arrayOf("user_id"),
         onDelete = ForeignKey.CASCADE
         )
-        )*/
+        )
 )
 data class Schedule(
     @PrimaryKey(autoGenerate = true)
